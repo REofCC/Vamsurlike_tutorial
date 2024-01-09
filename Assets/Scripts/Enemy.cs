@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,12 +12,18 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D target;
 
     private Rigidbody2D rigid;
+    private SpriteRenderer sprite;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
         isAlive = true;
+    }
+
+    void OnEnable()
+    {
+        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -28,6 +35,11 @@ public class Enemy : MonoBehaviour
         Vector2 nextVec = vecDiff.normalized * moveSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
         rigid.velocity = Vector2.zero;
+    }
+
+    void LateUpdate()
+    {
+        
     }
 
 }

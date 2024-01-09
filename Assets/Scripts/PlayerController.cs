@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigid;
+    private SpriteRenderer sprite;
     [SerializeField]
     float moveSpeed;
 
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,5 +26,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 nextVec = inputVec.normalized * moveSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
+    }
+    private void LateUpdate()
+    {
+        if (inputVec.x>0)
+            sprite.flipX = true;
     }
 }
