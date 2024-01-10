@@ -9,9 +9,17 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
-    float spawnRate;
+    float basicSpawnRate;
+    [SerializeField]
+    float increaseSpawnRate;
     [SerializeField]
     int maxSpawnCount;
+    [SerializeField]
+    int maxlevel;
+
+    public SpawnData[] spwanData;
+
+    private int currentLevel;
 
     private float timer;
 
@@ -25,11 +33,11 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
-        if(timer> spawnRate)
+        currentLevel = Mathf.FloorToInt(GameManager.instance.currentGameTime / (GameManager.instance.maxGameTime/maxlevel));   // 현재 경과 시간 / (최대 게임 시간 / 레벨 단계) 로 스테이지 조정
+        if (timer > (currentLevel == 0 ? basicSpawnRate : basicSpawnRate - increaseSpawnRate * currentLevel)) // 기본 스폰 - (상승률 * 레벨)
         {
-            Spawn();
             timer = 0;
+            Spawn();
         }
     }
 
@@ -38,4 +46,12 @@ public class Spawner : MonoBehaviour
         GameObject enemy = GameManager.instance.pool.Get(Random.Range(0, GameManager.instance.pool.GetEnemyTypes()));
         enemy.transform.position = spawnPoints[Random.Range(1,spawnPoints.Length)].position;
     }
+}
+[System.Serializable]
+public class SpawnData
+{
+    public int spriteType;
+    public float spawnRate;
+    public int hp;
+    public float moveSpeed;
 }
