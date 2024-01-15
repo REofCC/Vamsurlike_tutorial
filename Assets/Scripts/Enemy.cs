@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D rigid;
     private SpriteRenderer sprite;
+    private Animator animator;
 
     private WaitForFixedUpdate wait;
 
@@ -24,12 +25,13 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        animator =GetComponent<Animator>();
         isAlive = true;
         wait = new WaitForFixedUpdate();    // 다음 물리 프레임까지 딜레이
     }
     void FixedUpdate()
     {
-        if (!isAlive)
+        if (!isAlive || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit")) // || 애니메이터 피격 조건 추가
             return;
 
         Vector2 vecDiff = target.position - rigid.position;
@@ -50,10 +52,9 @@ public class Enemy : MonoBehaviour
 
         hp -= collision.GetComponent<Bullet>().damage;
         StartCoroutine(KnockBack());
-
         if (hp >0)
         {
-            // 피격 모션
+            animator.SetTrigger("Hit");
         }
         else
         {
