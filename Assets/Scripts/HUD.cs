@@ -26,8 +26,8 @@ public class HUD : MonoBehaviour
         {
             case InfoType.Exp:
                 {
-                    int currentExp = GameManager.instance.exp;
-                    int maxExp = GameManager.instance.nextExp[GameManager.instance.level];
+                    float currentExp = GameManager.instance.exp;
+                    float maxExp = GameManager.instance.nextExp[GameManager.instance.level];
                     slider.value = currentExp / maxExp;
                 }
                 break;

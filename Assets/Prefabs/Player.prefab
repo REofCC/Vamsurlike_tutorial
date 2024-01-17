@@ -853,6 +853,7 @@ GameObject:
   - component: {fileID: 3028495956749657791}
   - component: {fileID: 3844623505152613316}
   - component: {fileID: 8718103970429288844}
+  - component: {fileID: -7081981890915645836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1005,6 +1006,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   inputVec: {x: 0, y: 0}
+--- !u!114 &-7081981890915645836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3979011428708877492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afc6c9c1728eeb42ad4e6d37a7adf19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
 --- !u!1 &4194125478115977730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,6 +1188,7 @@ MonoBehaviour:
   increaseSpawnRate: 0.1
   maxSpawnCount: 2
   maxlevel: 3
+  spwanData: []
 --- !u!1 &5315659193804931056
 GameObject:
   m_ObjectHideFlags: 0

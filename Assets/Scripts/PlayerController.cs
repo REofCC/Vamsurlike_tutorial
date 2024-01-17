@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Scanner scanner;
+
     private Rigidbody2D rigid;
     private SpriteRenderer sprite;
     [SerializeField]
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        scanner = GetComponent<Scanner>();
     }
 
     // Update is called once per frame

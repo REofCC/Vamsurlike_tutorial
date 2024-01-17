@@ -1,5 +1,6 @@
 using System.Data;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
         if (exp >= nextExp[level])
         {
             level++;
+            instance.player.GetComponentInChildren<Weapon>().LevelUp(1,1);
             exp = 0;
         }
     }

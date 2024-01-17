@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!isAlive || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit")) // || 애니메이터 피격 조건 추가
+        if (!isAlive || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
 
         Vector2 vecDiff = target.position - rigid.position;
