@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     float MaxHp;
     [SerializeField]
     bool isAlive;
+
+    public float damage;
+
     public Rigidbody2D target;
 
     private Rigidbody2D rigid;
@@ -25,7 +28,7 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        animator =GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         isAlive = true;
         wait = new WaitForFixedUpdate();    // 다음 물리 프레임까지 딜레이
     }
@@ -86,6 +89,7 @@ public class Enemy : MonoBehaviour
         moveSpeed = data.moveSpeed;
         hp = data.hp;
         MaxHp = data.hp;
+        damage = data.damage;
     }
 
 

@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public int exp;
     public int[] nextExp = { 10, 20, 40, 80, 160 };
     public float hp;
+    public float maxHp;
+    public bool isAlive;
 
     [Header("Game Object")]
     public PoolManager pool;
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        this.hp = this.maxHp;
+        this.isAlive = true;
     }
 
     // Update is called once per frame

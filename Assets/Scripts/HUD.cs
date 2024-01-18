@@ -38,9 +38,10 @@ public class HUD : MonoBehaviour
                 text.text = string.Format("{0:F0}", GameManager.instance.kill);
                 break;
             case InfoType.Time:
-                text.text = string.Format("{0:F0} Sec", GameManager.instance.level);
+                text.text = string.Format("{0:F0} Sec", GameManager.instance.currentGameTime);
                 break;
             case InfoType.Hp:
+                slider.value = GameManager.instance.hp / GameManager.instance.maxHp;
                 break;
         }
     }

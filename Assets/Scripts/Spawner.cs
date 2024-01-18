@@ -56,4 +56,5 @@ public class SpawnData
     public float spawnRate;
     public int hp;
     public float moveSpeed;
+    public float damage;
 }
