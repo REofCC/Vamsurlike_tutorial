@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    void start()
-    {
-        
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Area"))

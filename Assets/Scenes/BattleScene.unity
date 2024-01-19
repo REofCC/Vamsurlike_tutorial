@@ -13989,7 +13989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1245208776
 Transform:
   m_ObjectHideFlags: 0
@@ -18758,6 +18758,7 @@ MonoBehaviour:
   nextExp: 0a000000140000002800000050000000a0000000
   hp: 0
   maxHp: 10
+  isAlive: 0
   pool: {fileID: 1146162605}
   player: {fileID: 1911609071}
 --- !u!4 &1832216431
