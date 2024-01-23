@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName ="Scriptable Object/")]
+[CreateAssetMenu(fileName = "Item", menuName ="Scriptable Object/ItemData")]
 public class ItemData : ScriptableObject
 {
     public enum ItemType { Melee, Range, Glove, Shoe, Heal}
