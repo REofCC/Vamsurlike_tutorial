@@ -14,18 +14,33 @@ public class Weapon : MonoBehaviour
     public float timer;
     public int penetrate;
     public int bulletSpeed;
-    // Start is called before the first frame update
 
     void Awake()
     {
-        player = GetComponentInParent<PlayerController>();
+        player = GameManager.instance.player;
     }
-    void Start()
+
+    public void Init(ItemData data)
     {
-        Init();
-    }
-    public void Init()
-    {
+        // Basic
+        name = "Weapon " + data.itemId;
+        transform.parent = player.transform;
+        transform.localPosition = Vector3.zero;
+
+
+        id = data.itemId;
+        damage = data.baseDamage;
+        count = data.baseCount;
+
+        for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++)
+        {
+            if (data.projectile == GameManager.instance.pool.prefabs[i])
+            {
+                prefabId = i;
+                break;
+            }
+        }
+
         switch (id)
         {
             case 0:

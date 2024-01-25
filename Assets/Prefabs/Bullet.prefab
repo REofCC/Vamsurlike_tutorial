@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8831846782980911130}
   - component: {fileID: 1952909500338691944}
   - component: {fileID: 7673757639708065442}
-  - component: {fileID: -6919216738342494871}
+  - component: {fileID: 1750311692817081296}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -136,7 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   penetrate: 1
---- !u!50 &-6919216738342494871
+  speed: 0
+  rigid: {fileID: 0}
+--- !u!50 &1750311692817081296
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject[] prefabs;
+    public GameObject[] prefabs;
 
     List<GameObject>[] pools;
     // Start is called before the first frame update
